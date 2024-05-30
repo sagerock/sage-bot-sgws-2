@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { marked } from 'marked'; // Correctly import marked
 import './Chatbot.css';  // Import the CSS file
 
 const Chatbot = () => {
@@ -14,7 +15,7 @@ const Chatbot = () => {
 
     try {
       const response = await axios.post(
-        'https://flowiseai-railway-production-a00a.up.railway.app/api/v1/prediction/1d0703f8-aea0-4e82-84bf-000a3cf4c3a9',
+        'https://flowiseai-railway-production-a00a.up.railway.app/api/v1/prediction/40213ceb-cd29-4483-8d98-bf77e70ac95a',
         { question: input },
         { headers: { 'Content-Type': 'application/json' } }
       );
@@ -36,7 +37,8 @@ const Chatbot = () => {
       <div className="chatbox">
         {messages.map((msg, index) => (
           <div key={index} className={msg.sender === 'user' ? 'user-message' : 'bot-message'}>
-            <strong>{msg.sender === 'user' ? 'You' : 'Spring Garden Bot'}: </strong>{msg.text}
+            <strong>{msg.sender === 'user' ? 'You' : 'Spring Garden Bot'}: </strong>
+            <span className="markdown" dangerouslySetInnerHTML={{ __html: marked(msg.text) }} />
           </div>
         ))}
       </div>

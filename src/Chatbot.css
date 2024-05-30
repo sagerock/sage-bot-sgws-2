@@ -52,3 +52,31 @@
     background-color: #45a049;
   }
   
+  /* src/Chatbot.css */
+.markdown {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.markdown h1, .markdown h2, .markdown h3, .markdown h4, .markdown h5, .markdown h6 {
+  margin-top: 20px;
+}
+
+.markdown p {
+  margin-bottom: 10px;
+}
+
+.markdown a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.markdown a:hover {
+  text-decoration: underline;
+}
+
+.markdown code {
+  background-color: #f9f9f9;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
